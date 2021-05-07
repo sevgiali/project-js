@@ -1,24 +1,63 @@
-import logo from './logo.svg';
-import './App.css';
+
+import Home from './pages/home';
+import Products from './pages/Products';
+import DefaultLayout from './layouts/Default';
+import Contact from './pages/Contact';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
+
+
+
+
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    main: () => <DefaultLayout>
+      <Home></Home>
+    </DefaultLayout>
+
+  },
+  {
+    path: '/products',
+    main: () => <DefaultLayout>
+      <Products></Products>
+    </DefaultLayout>
+  },
+  {
+    path: '/contact',
+    main: () => <DefaultLayout>
+      <Contact></Contact>
+    </DefaultLayout>
+  },
+]
+
+const getRoutes = () => {
+  const routeComponents = routes.map((route, index) => {
+    return <Route
+    key={index}
+      exact={route.exact}
+      path={route.path}
+    >
+      {route.main}
+    </Route>
+  })
+  return routeComponents
+}
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Switch>
+
+        {getRoutes()}
+      </Switch>
+    </Router>
+
   );
 }
 
