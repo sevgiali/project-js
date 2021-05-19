@@ -1,8 +1,9 @@
 
 import Home from './pages/home';
-import Products from './pages/Products';
+
 import DefaultLayout from './layouts/Default';
-import Contact from './pages/Contact';
+
+import Movies from './pages/Movies';
 
 import {
   BrowserRouter as Router,
@@ -13,25 +14,23 @@ import {
 
 
 
+
 const routes = [
   {
     path: '/',
     exact: true,
     main: () => <DefaultLayout>
-      <Home></Home>
+       <Movies></Movies>
     </DefaultLayout>
 
   },
+
+  
   {
-    path: '/products',
+    path: '/example',
     main: () => <DefaultLayout>
-      <Products></Products>
-    </DefaultLayout>
-  },
-  {
-    path: '/contact',
-    main: () => <DefaultLayout>
-      <Contact></Contact>
+    
+      <Home></Home>
     </DefaultLayout>
   },
 ]

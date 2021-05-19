@@ -1,6 +1,5 @@
 
 import Carousel from '../components/carousel/Carousel';
-import Example from '../components/example/Example';
 
 function Home(props) {
 
@@ -8,7 +7,7 @@ function Home(props) {
         <div className="container">
             <div className="row">
                 <Carousel />
-                <Example />
+            
             </div>
 
         </div>
